@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %}Cadarsir - Développeur Web {% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {% include('cadarsir/include/style.html.twig') %}
+  {% block css %}{% endblock %}
+</head>
+<body>
+{% block menu %}
+ {% include('cadarsir/include/menu.html.twig') %}
+{% endblock %}
+
+  {% block body %}{% endblock %}
+
+{% include('cadarsir/include/js.html.twig') %}
+
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+  {% include('cadarsir/include/js.html.twig') %}
+
+{% block javascript %}
+{% endblock %}
+
+{% block footer %}
+  {% include('cadarsir/include/footer.html.twig') %}
+{% endblock %}
+</body>
+</html>

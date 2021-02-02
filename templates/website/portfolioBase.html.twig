@@ -1,0 +1,160 @@
+{% extends 'base.html.twig' %}
+{% block menu %}
+    {% include('cadarsir/include/menu.html.twig') with {'cooperationName' : p.title , 'cooperationLink' : p.link } %}
+{% endblock %}
+
+{% block css %}
+{{ parent() }}
+    <style>
+        .overlay{
+            background-image: url("{{ asset(p.featuredImage.path) }}") !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+        .overlay::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #1a100078;
+        }
+
+        .ftco-degree-bg.top:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -50px;
+            overflow: visible;
+            width: 100%;
+            height: 120px;
+            z-index: 0;
+            -webkit-transform: skewY(4deg);
+            -moz-transform: skewY(4deg);
+            -ms-transform: skewY(4deg);
+            -o-transform: skewY(4deg);
+            transform: skewY(4deg);
+            background-color: #fff; }
+        .slider-item.fullscreen{
+            height: 100vh !important;
+        }
+    </style>
+{% endblock %}
+
+	{% block title %}Cadarsir - {{ p.title }}{% endblock %}
+
+	{% block body %}
+        <section class="home-slider">
+
+            <div class="slider-item fullscreen">
+                <div class="overlay"></div>
+                <div class="container">
+
+                    <div class="row slider-text align-items-center justify-content-center">
+                        <div class="col-md-10 ftco-animate text-center">
+                            <h1 class="mb-4">{{ p.title }} :
+                                <strong class="typewrite" data-period="4000" data-type='[ "{{ p.stringKeyWords }}" ]'>
+                                    <span class="wrap"></span>
+                                </strong>
+                            </h1>
+                            <p>{{ p.heading }}</p>
+                            <a href="{{ p.link }}" class ="buttonPage"> Voir le site </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END slider -->
+        <section class="ftco-section ftco-degree-bg">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-5">
+                    <div class="col-md-7 text-center heading-section ftco-animate">
+                        <span class="subheading">Description Rapide</span>
+                        <h2>{{ p.title }}, C'est quoi ? </h2>
+                    </div>
+                </div>
+                <div class="">
+                    {{ p.shortDescription | raw }}
+
+                </div>
+            </div>
+        </section>
+
+        <section class="ftco-section ftco-counter ftco-degree-bg" id="section-counter">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-5">
+                    <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                        <h2>Quelques chiffres de ce projet :</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for number in p.numbers %}
+                    <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <strong class="number" data-number="{{ number.chiffre }}">0</strong>
+                                <span>{{ number.description }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+
+        <section class="ftco-section ftco-degree-bg">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-5">
+                    <div class="col-md-7 text-center heading-section ftco-animate">
+                        <span class="subheading">Mon travail sur ce projet</span>
+                        <h2>{{p.myWorkOnThisProject}}</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for task in p.task %}
+                    <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+                        <div class="media block-6 services d-block text-center">
+                            <div class="d-flex justify-content-center"><div class="icon color-{{ loop.index}} d-flex justify-content-center mb-3"><span class="align-self-center fa fa-{{ task.icon }}"></span></div></div>
+                            <div class="media-body p-2">
+                                <h3 class="heading">{{ task.title }}</h3>
+                                <p>{{task.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="ftco-section ftco-counter ftco-degree-bg top" id="section-counter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="mb-4" style="color:white; font-weight : 200"> Plus d'images </h1>
+                        <div class="owl-carousel">
+                            {% for image in p.images %}
+                            <div class="">
+                                <img src="{{ asset(image.path) }}" class="img-fluid" alt="">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ftco-section ftco-degree-bg">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-5">
+                    <div class="col-md-7 text-center heading-section ftco-animate">
+                        <h2>Que m'a apporté ce projet ?</h2>
+                    </div>
+                </div>
+                <div class="finally">
+                    {{ p.finally | raw }}
+                </div>
+            </div>
+        </section>
+    {% endblock %}

@@ -1,0 +1,296 @@
+*{
+  font-family: Roboto;
+}
+html,body{
+  width: 100%;
+  margin: 0px;
+}
+@font-face{
+  font-family: LogoFont;
+  src : url('Microsoft_Yi_Baiti.ttf');
+}
+a{
+  text-decoration: none;
+  color: #ed8204;
+  font-family: Roboto;
+}
+.fullScreen{
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+}
+#banniere{
+  background-color: #2e2e2e;
+  width: 100%;
+}
+#logo{
+  font-family:LogoFont;
+  text-align: center;
+  font-size: 500%;
+  width: min-content;
+  margin: 0 auto;
+  padding-bottom: 1%;
+}
+#logo>a{
+    font-family:LogoFont;
+  font-size: 130%;
+}
+#nom{
+  color: whitesmoke;;
+}
+#menu{
+  display: flex;
+  padding: 0px;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  top: 0px;
+  z-index: 0;
+  /*! margin: 0 auto; */
+}
+#menu-navigation{
+  width: auto;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 2%;
+  padding-top: 2%;
+}
+.menu-item{
+  color: whitesmoke;
+  text-align: center;
+  transition: all 0.5s;
+  border-radius: 4px 4px 0px 0px;
+  background-color: #2e2e2e;
+  border: none;
+  color: #FFFFFF;
+  font-size: 100%;
+  padding: 2% 0% 2% 0;
+  width: 20%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 0 1%;
+}
+
+.menu-item span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.menu-item span:after {
+  content: '\00FE3E';
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  right:45%;
+  transition: 0.5s;
+}
+.menu-item:hover span {
+  padding-bottom: 0%;
+}
+.menu-item:hover span:after {
+  opacity: 1;
+  top:35px;
+}
+#fond{
+  background-color: #ed8204;
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+}
+#carteContainer{
+  background-color: #4e4e4e;
+  margin: 2%;
+  display: flex;
+  border-radius: 20px;
+  height: 200vh;
+  padding: 2%;
+  color: white;
+}
+#carteContainer2{
+  background-color: #4e4e4e;
+  margin: 2%;
+  display: flex;
+  border-radius: 20px;
+  height: 100vh;
+  padding: 2%;
+  overflow: hidden;
+  margin-top: 10%;
+}
+.secondCard{
+  position: absolute;
+  width: 92%;
+  height: auto;
+  transition: all 0.5s  ease-in-out;
+  border-radius: 20px;
+  text-align: center;
+  background-color: white;
+  color: black;
+  padding-top: 3%;
+}
+.secondCard>p{
+  padding: 1% 2% 0 2%;
+}
+.secondCard:nth-child(1){
+  left: 4%;
+}
+.secondCard:nth-child(2){
+  left: 104%;
+}
+.carte{
+  position: absolute;
+  width: 92%;
+  height: 200vh;
+  transition: all 0.5s  ease-in-out;
+  border-radius: 20px;
+  text-align: center;
+}
+.cartechange{
+  box-shadow: 0px 0px 15px grey;
+}
+html {
+    overflow-x: hidden;
+}
+#gauche{
+  position: absolute;
+  left:0;
+  width: 2%;
+  background-color: #ed8204;
+  height: 200vh;
+  margin-top: 2%;
+  z-index: 1;
+}
+.buttonPage{
+  color: #fab348;
+  background-color: white;
+  padding: 1% 2%;
+  border-radius: 15px;
+  font-size: 120%;
+}
+.buttonPage:hover{
+  color: white;
+  background-color: #fab348;
+}
+#droite{
+  position: absolute;
+  right:0px;
+  width: 2%;
+  background-color: #ed8204;
+  height: 200vh;
+  margin-top: 2%;
+  z-index: 1;
+}
+.next{
+  border: none;
+  background-color: transparent;
+  font-size: 200%;
+  position: fixed;
+  right: 50px;
+  cursor: pointer;  
+  transition: all 0.5s  ease-in-out;
+}
+.next:after{
+  content: '\00300B';
+  color: black;
+  position: relative;
+  left: 10px;
+}
+.previous{
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  font-size: 200%;
+  position: fixed;
+  left:50px;
+  cursor: pointer;  
+  transition: all 0.5s  ease-in-out;
+}
+.previous:after{
+  content: '\00300A';
+  color: black;
+  position: relative;
+  right: 10px;
+}
+.hidden{
+ display: none;
+}
+.menuSelected{
+  background-color: #4e4e4e;
+}
+button{
+    outline:none;
+}
+button::-moz-focus-inner {
+   border: 0;
+}
+#Front-end{
+}
+#menu2{
+  position: absolute;
+  top: 5%;
+  width: 100%;
+}
+.menu-item2:hover{
+  background-color: white;
+  color: black;
+}
+.selected{
+  background-color: white;
+  color: black;
+}
+#cartePresentation{
+  text-align: center;
+  background-color: white;
+  margin: 2% 3%;
+  border-radius: 8px;
+  padding:2%;
+}
+span.color{
+  color: #ed8204;
+}
+.row{
+  margin: 2% 0 3% 0;
+  display: flex;
+}
+.row>div{
+box-shadow: 0 0 6px;
+margin: 0 2%;
+ padding: 1%;
+  border-radius: 8px;
+  text-align: justify;
+  background-color: white;
+  color: black;
+  transition: all 0.5s;
+}
+.row>div>h3{
+  text-align: center;
+}
+#presentation{
+  font-size: 130%;
+  margin-bottom: 5%;
+}
+.descImg{
+  width: 20%;
+  display: block;
+  margin: 0 auto;
+}
+.imgFront{
+  width: 30%;
+  display: block;
+  margin: 0 auto;
+}
+.row>div:hover{
+  box-shadow: 0 0 14px;
+}
+@media screen and (min-width: 200px) and (max-width:1000px){
+  .row{
+    display: block;
+  }
+    .row>div{
+   margin-bottom: 5%;
+  }
+  
+}
+
+
+

@@ -1,0 +1,53 @@
+@font-face {
+  font-family: myFont;
+  src: url(ComicNeue-Regular.ttf);
+}
+
+*{
+  font-family : myFont;
+}
+
+:parametres {
+  --R: 245;
+  --G :191;
+  --B : 239;
+  --Rs : 227;
+  --Gs : 148;
+  --Bs : 218;
+}
+
+.open{
+
+  display:  block;
+}
+.closed{
+  display:none;
+}
+
+#parametres{
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  text-align: center;
+  padding-top: 2%;
+  position: fixed;
+  transition-duration: 1s;
+  transition-property: display;
+  transition-timing-function: ease-in;
+}
+#actionParametres{
+  position : fixed; 
+  padding: 2%;
+  font-size : 100;
+  z-index: 1;
+}
+@media only screen and (max-width: 700px) {
+ #actionParametres{
+  font-size : 50;
+}
+#parametres{
+  padding-top: 20%;
+  padding-left : 2%;padding-right : 2%;
+  
+}
+}

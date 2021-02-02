@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+<style>
+    .content * {
+        color: #4e4e4e;
+    }
+    blockquote{
+        background-color: #568fc1;
+        border-radius: 10px;
+        padding: 10px 10px 010px 10px;
+        color: white !important;
+        font-size: 17px;
+        font-weight: 600;
+        width: max-content;
+    }
+    blockquote::before{
+        content: "";
+        position: absolute;
+        height: 3%;
+        width: 5px;
+        background-color: #568fc1;
+        margin-left: -20px;
+        margin-top: -10px;
+        border-radius: 10px;
+    }
+    @media all and (max-width: 720px){
+        blockquote{
+            width: auto;
+        }
+    }
+
+</style>
+{% endblock %}
+
+	{% block title %}Cadarsir - {{ b.title }}{% endblock %}
+
+	{% block body %}
+        <section class="home-slider">
+            <div class="slider-item fullscreen">
+                <div class="overlay"></div>
+                <div class="container">
+
+                    <div class="row slider-text align-items-center justify-content-center">
+                        <div class="col-md-10 ftco-animate text-center">
+                            <h1 class="mb-4">{{ b.title}}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END slider -->
+        <section class="ftco-section ftco-degree-bg">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-5">
+                    <div class="col-md-7 text-center heading-section ftco-animate">
+                        <h2>{{ b.title }}</h2>
+                    </div>
+                </div>
+                <div class=" content ftco-animate">
+                    {{ b.content | raw }}
+
+                </div>
+            </div>
+        </section>
+
+
+    {% endblock %}

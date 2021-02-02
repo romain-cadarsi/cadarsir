@@ -1,0 +1,51 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
+  <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="arbres.js"></script>
+  <script language="javascript" type="text/javascript" src="script.js"></script>
+  <script language="javascript" type="text/javascript" src="sketch_js.js"></script>
+  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen" /> 
+   <script language="javascript" type="text/javascript" src="script.js" defer></script>
+   <script src="https://kit.fontawesome.com/e7cb47b895.js" crossorigin="anonymous"></script>
+  
+  <!-- This line removes any default padding and style.
+       You might only need one of these values set. -->
+  <style> body { padding: 0; margin: 0; } </style>
+</head>
+
+<body>
+<div id='actionParametres'>
+<i class="fas fa-cogs open" id="openParametres"></i>
+<i class="fas fa-times closed" id="closeParametres"></i>
+</div>
+<div id="parametres" class="closed">
+<button onclick="resetSketch()">Recharger</button>
+  <div class="slidecontainer">Changer la grosseur de l'arbre ?
+  1<input type="range" min="1" max="11" value="6" class="slider" id="recursifVar">11
+</div>
+<div class="slidecontainer">Changer les détails de l'animation ?
+  <input type="range" min="1" max="200" value="100" class="slider" id="detailsVar">
+</div>
+<div class="slidecontainer">Augmenter le nombre de branches?
+  <input type="range" min="1" max="9" value="2" class="slider" id="addBranchesVar">
+</div>
+<label for="color">Choisir la couleur des feuilles :</label>
+<select id="color">
+  <option value="pinkcolor">Rose</option>
+  <option value="bluecolor">Bleu</option>
+</select> 
+
+
+<label for="contrast">Choisissez un thème :</label>
+<select id="contrast">
+  <option value="0">Blanc/Noir</option>
+  <option value="1">Noir/Blanc</option>
+</select> 
+</div>
+</body>
+</html>
