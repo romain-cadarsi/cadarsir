@@ -114,7 +114,7 @@
 				</div>
 				<div class="row no-gutters">
 					{% for portfolio in portfolios %}
-						<div class="block-3 d-md-flex ftco-animate">
+						<div class="block-3 d-md-flex ftco-animate{% if loop.index % 2 %} reversed {% endif %}">
 							<a href="{{ path('showPortfolio',{'slug' : portfolio.slug}) }}" class="image" style="background-image: url('{{ asset(portfolio.featuredImage.path) }}'); "></a>
 							<div class="text">
 								<h4 class="subheading">{{ portfolio.myWorkOnThisProject }}</h4>
