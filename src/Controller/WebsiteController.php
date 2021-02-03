@@ -91,7 +91,7 @@ class WebsiteController extends AbstractController
      */
     public function showPortfolio(string $slug, PortfolioRepository $portfolioRepository)
     {
-        $portfolio = $portfolioRepository->findOneBy(['slug' => $id ]);
+        $portfolio = $portfolioRepository->findOneBy(['slug' => $slug ]);
         return $this->render('website/portfolioBase.html.twig', [
             'p' => $portfolio
         ]);
