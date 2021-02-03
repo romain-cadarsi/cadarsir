@@ -63,6 +63,12 @@ class Blog
         return $this;
     }
 
+    public function getDisplayContent(){
+    $pattern = '/h1/i';
+    $replacement = 'h2';
+    return preg_replace($pattern, $replacement, $this->content);
+}
+
     public function getSlug(): ?string
     {
         return $this->slug;
