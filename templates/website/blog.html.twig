@@ -39,7 +39,7 @@
                             <div class="blogBlock block-7 ftco-animate ">
                                 <div class="text">
                                     <h2 class="heading"><a href="{{ path('showBlog',{'slug' : blog.slug}) }}">{{ blog.title }}</a></h2>
-                                    {{ blog.content |u.truncate( 600, '...', false) | raw }}
+                                    {{ blog.displayContent |u.truncate( 600, '...', false) | raw }}
                                     <p> {{'le ' ~ blog.modifiedAt | date('d/m/y')}}</p>
                                 </div>
 
