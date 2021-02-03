@@ -1,3 +1,7 @@
 .finally *{
     font-size: 19px ;
 }
+
+.reversed{
+    flex-direction: row-reverse;
+}

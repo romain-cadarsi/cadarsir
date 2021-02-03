@@ -15,10 +15,3 @@ document.getElementsByClassName("nc")[0].addEventListener('mouseleave',function(
     setTimeout(function(){document.getElementById("prenom").innerHTML = "Cadarsi R";}, 180);
     setTimeout(function(){document.getElementById("prenom").innerHTML = "Cadarsir";}, 210);
 });
-
-$('.owl-carousel').owlCarousel({
-    loop:true,
-    margin:20,
-    nav:true,
-    items: 1
-})

@@ -87,11 +87,11 @@ class WebsiteController extends AbstractController
     }
 
     /**
-     * @Route("/portfolio/{id}", name="showPortfolio" , methods={"GET"})
+     * @Route("/portfolio/{slug}", name="showPortfolio" , methods={"GET"})
      */
-    public function showPortfolio(int $id, PortfolioRepository $portfolioRepository)
+    public function showPortfolio(string $slug, PortfolioRepository $portfolioRepository)
     {
-        $portfolio = $portfolioRepository->find($id);
+        $portfolio = $portfolioRepository->findOneBy(['slug' => $id ]);
         return $this->render('website/portfolioBase.html.twig', [
             'p' => $portfolio
         ]);
