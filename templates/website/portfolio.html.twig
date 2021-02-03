@@ -43,7 +43,7 @@
 						<div class="text">
 							<h4 class="subheading">{{ portfolio.myWorkOnThisProject }}</h4>
 							<h2 class="heading"><a href="{{ path('showPortfolio',{'slug' : portfolio.slug}) }}">{{ portfolio.title }}</a></h2>
-							{{ portfolio.displayShortDescription |raw |u.truncate( 600, '...', false) }}
+							{{ portfolio.displayShortDescription |u.truncate( 600, '...', false) | raw }}
 						</div>
 					</div>
 					{% endfor %}
