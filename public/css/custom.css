@@ -5,3 +5,7 @@
 .reversed{
     flex-direction: row-reverse;
 }
+
+.portfolioBlock{
+    width: 100%;
+}
