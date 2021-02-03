@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Portfolio;
 use App\Repository\BlogRepository;
 use App\Repository\PortfolioRepository;
+use App\Repository\TestimonyRepository;
 use App\Service\MailService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -67,11 +68,13 @@ class WebsiteController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(PortfolioRepository $portfolioRepository)
+    public function index(PortfolioRepository $portfolioRepository,TestimonyRepository $testimonyRepository)
     {
         $allPortfolios = $portfolioRepository->findAll();
+        $allTestimony = $testimonyRepository->findAll();
         return $this->render('website/accueil.html.twig', [
-            'portfolios' => $allPortfolios
+            'portfolios' => $allPortfolios,
+            'testimonies' => $allTestimony
         ]);
     }
 

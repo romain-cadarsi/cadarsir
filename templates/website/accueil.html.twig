@@ -138,50 +138,22 @@
 				<div class="row ftco-animate">
 					<div class="col-md-12">
 						<div class="carousel-testimony owl-carousel ftco-owl">
+							{% for testimony in testimonies %}
 							<div class="item text-center">
 								<div class="testimony-wrap p-4 pb-5">
-									<div class="user-img mb-4" style="background-image: url(../images/person_1.jpg)">
+									<div class="user-img mb-4" style="background-image: url('{{ path(testimony.client.image.path) }}')">
 	                    				<span class="quote d-flex align-items-center justify-content-center">
 	                      					<i class="icon-quote-left"></i>
 	                   					 </span>
 									</div>
 									<div class="text">
-										<p class="mb-5">Un super taff, super agréable de travailler avec Romain ! Merci Beaucoup.</p>
-										<p class="name">Terence et Pravine</p>
-										<span class="position">Fondateurs de CineVerse</span>
+										<p class="mb-5">{{testimony.description}}</p>
+										<p class="name">{{ testimony.client.name }}</p>
+										<span class="position">{{ testimony.client.job }}</span>
 									</div>
 								</div>
 							</div>
-							<div class="item text-center">
-								<div class="testimony-wrap p-4 pb-5">
-									<div class="user-img mb-4" style="background-image: url(../images/person_3.jpg)">
-	                    <span class="quote d-flex align-items-center justify-content-center">
-	                      <i class="icon-quote-left"></i>
-	                    </span>
-									</div>
-									<div class="text">
-										<p class="mb-5">Merci Romain,
-											votre service est d’une qualité professionnelle ! C’est impressionnant chez un étudiant
-										</p>
-										<p class="name">A. Messaoui</p>
-										<span class="position">Professeur à l'IUT</span>
-									</div>
-								</div>
-							</div>
-							<div class="item text-center">
-								<div class="testimony-wrap p-4 pb-5">
-									<div class="user-img mb-4" style="background-image: url(../images/person_2.jpg)">
-	                    <span class="quote d-flex align-items-center justify-content-center">
-	                      <i class="icon-quote-left"></i>
-	                    </span>
-									</div>
-									<div class="text">
-										<p class="mb-5">Merci Romain, un site comme je le voyais c'est parfait.</p>
-										<p class="name">Gibson Diallo</p>
-										<span class="position">Président de l'association KizRelax</span>
-									</div>
-								</div>
-							</div>
+							{% endfor %}
 						</div>
 					</div>
 				</div>
