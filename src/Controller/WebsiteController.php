@@ -112,7 +112,7 @@ class WebsiteController extends AbstractController
     }
 
     /**
-     * @Route("/blog/{slug}", name="showblog" , methods={"GET"})
+     * @Route("/blog/{slug}", name="showBlog" , methods={"GET"})
      */
     public function showBlog(string $slug, BlogRepository $blogRepository)
     {

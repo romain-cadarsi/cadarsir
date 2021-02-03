@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=BlogRepository::class)
+ * @ORM\HasLifecycleCallbacks
  */
 class Blog
 {
@@ -32,6 +33,11 @@ class Blog
      * @ORM\Column(type="string", length=255)
      */
     private $slug;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $modifiedAt;
 
     public function getId(): ?int
     {
@@ -83,5 +89,27 @@ class Blog
 
     public function __toString(){
         return $this->title;
+    }
+
+    public function getModifiedAt(): ?\DateTimeInterface
+    {
+        return $this->modifiedAt;
+    }
+
+    public function setModifiedAt(\DateTimeInterface $modifiedAt): self
+    {
+        $this->modifiedAt = $modifiedAt;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function autoTimeStamp(): void
+    {
+        $this->setModifiedAt(new \DateTime('now'));
+
     }
 }

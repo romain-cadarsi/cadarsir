@@ -9,3 +9,31 @@
 .portfolioBlock{
     width: 100%;
 }
+
+
+.blogBlock {
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 10px;
+    break-inside: avoid;
+}
+
+.blogBlock > .text {
+    grid-row: 1 / -1;
+    grid-column: 1;
+    width: 80%;
+}
+
+
+.containerMasonry {
+    column-count: 3;
+    column-gap: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    .containerMasonry {
+        column-count: 1;
+        column-gap: 10px;
+    }
+}

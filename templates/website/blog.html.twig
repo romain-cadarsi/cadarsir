@@ -1,0 +1,91 @@
+
+{% extends 'base.html.twig' %}
+
+	{% block title %}Cadarsir - Blogs{% endblock %}
+
+	{% block body %}
+        <section class="home-slider ftco-degree-bg">
+
+            <div class="slider-item">
+                <div class="overlay"></div>
+                <div class="container">
+
+                    <div class="row slider-text align-items-center justify-content-center">
+                        <div class="col-md-10 ftco-animate text-center">
+                            <h1 class="mb-4">Découvrez mes
+                                <strong class="typewrite" data-period="4000" data-type='[ "Blogs.", "FAQ.","Réponses."]'>
+                                    <span class="wrap"></span>
+                                </strong>
+                            </h1>
+                            <p>Eh oui je fais aussi des blogs, je parle de tout, allant des questions les plus fréquemment posées en freelance aux simples sujets qui m'intéressent dans la vie ! Peut-être vous aussi ?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END slider -->
+
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row no-gutters justify-content-center mb-5 pb-5">
+                    <div class="col-md-7 text-center heading-section ftco-animate">
+                        <h2>Blogs</h2>
+                    </div>
+                </div>
+
+
+                <div class="containerMasonry">
+                    {% for blog in blogs %}
+                            <div class="blogBlock block-7 ftco-animate ">
+                                <div class="text">
+                                    <h2 class="heading"><a href="{{ path('showBlog',{'slug' : blog.slug}) }}">{{ blog.title }}</a></h2>
+                                    {{ blog.content |u.truncate( 600, '...', false) | raw }}
+                                    <p> {{'le ' ~ blog.modifiedAt | date('d/m/y')}}</p>
+                                </div>
+
+                            </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="ftco-section ftco-counter ftco-degree-bg" id="section-counter">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-5">
+                    <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                        <h2>Mon expérience :</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <strong class="number" data-number="16">0</strong>
+                                <span>Clients satisfaits par leur projet </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <strong class="number" data-number="3">0</strong>
+                                <span>Ans de freelance</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <strong class="number" data-number="2584">0</strong>
+                                <span>Cafés engloutis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% endblock %}
