@@ -293,4 +293,8 @@ class Portfolio
         return preg_replace($pattern, $replacement, $this->shortDescription);
     }
 
+    public function __toString(){
+        return $this->title;
+    }
+
 }

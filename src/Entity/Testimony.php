@@ -55,4 +55,8 @@ class Testimony
 
         return $this;
     }
+
+    public function __toString(){
+        return $this->getClient()->getName() . ' - ' . $this->getDescription();
+    }
 }
