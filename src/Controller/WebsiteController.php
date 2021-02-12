@@ -150,7 +150,7 @@ class WebsiteController extends AbstractController
         $path = $kernel->getProjectDir().'/public/' . $uploadDirectory;
         $files = array_diff(scandir($path), array('..', '.'));
         $htmlresponse = "";
-        $urlpath = "/public/images/embedImage/";
+        $urlpath = "/images/embedImage/";
         foreach ($files as $file){
             $htmlresponse .= '<img src="' . $urlpath . $file . '"> ';
         }
