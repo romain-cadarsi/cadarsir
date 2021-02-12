@@ -133,11 +133,7 @@ class WebsiteController extends AbstractController
         $path = $kernel->getProjectDir().'/public/' . $uploadDirectory;
         echo($_FILES['file']['name']);
         $image = $path . basename($_FILES['file']['name']);
-        if (move_uploaded_file($_FILES['file']['tmp_name'], $image)) {
-            echo "File is valid, and was successfully uploaded.\n";
-        } else {
-            echo "Possible file upload attack!\n";
-        }
+        move_uploaded_file($_FILES['file']['tmp_name'], $image);
         return $this->render('blank.html.twig');
     }
 
