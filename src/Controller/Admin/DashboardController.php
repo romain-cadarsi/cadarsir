@@ -44,5 +44,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Portfolio taches', 'fas fa-list', PortfolioTask::class);
         yield MenuItem::linkToCrud('Témoignages ', 'fas fa-list', Testimony::class);
         yield MenuItem::linkToCrud('Blogs ', 'fas fa-list', Blog::class);
+        yield MenuItem::linktoRoute('Upload images','fa fa-images','imageSandbox');
     }
 }

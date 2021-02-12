@@ -3,12 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Portfolio;
+use App\Kernel;
 use App\Repository\BlogRepository;
 use App\Repository\PortfolioRepository;
 use App\Repository\TestimonyRepository;
 use App\Service\MailService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -119,6 +121,50 @@ class WebsiteController extends AbstractController
         $blog = $blogRepository->findOneBy(['slug' => $slug]);
         return $this->render('website/blogBase.html.twig', [
             'b' => $blog
+        ]);
+    }
+
+    /**
+     * @Route("/xhr/uploadImage", name="uploadImage")
+     */
+    public function uploadImage( Request $request, Kernel $kernel)
+    {
+        $uploadDirectory = 'images/embedImage/';
+        $path = $kernel->getProjectDir().'/public/' . $uploadDirectory;
+        echo($_FILES['file']['name']);
+        $image = $path . basename($_FILES['file']['name']);
+        if (move_uploaded_file($_FILES['file']['tmp_name'], $image)) {
+            echo "File is valid, and was successfully uploaded.\n";
+        } else {
+            echo "Possible file upload attack!\n";
+        }
+        return $this->render('blank.html.twig');
+    }
+
+    /**
+     * @Route("/xhr/getImages", name="getImages")
+     */
+    public function getImages( Kernel $kernel)
+    {
+        $uploadDirectory = 'images/embedImage';
+        $path = $kernel->getProjectDir().'/public/' . $uploadDirectory;
+        $files = array_diff(scandir($path), array('..', '.'));
+        $htmlresponse = "";
+        $urlpath = "/public/images/embedImage/";
+        foreach ($files as $file){
+            $htmlresponse .= '<img src="' . $urlpath . $file . '"> ';
+        }
+        return new Response($htmlresponse);
+    }
+
+    /**
+     * @Route("/imageSandbox", name="imageSandbox")
+     */
+    public function imageSandbox()
+    {
+        return $this->render('dragAndDropSandbox.html.twig', [
+            'metaDescription' => "a simple drag and drop images sandbox",
+            'title' => 'Drag it, Drop it, Copy it!'
         ]);
     }
 
