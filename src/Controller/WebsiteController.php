@@ -72,8 +72,8 @@ class WebsiteController extends AbstractController
      */
     public function index(PortfolioRepository $portfolioRepository,TestimonyRepository $testimonyRepository)
     {
-        $allPortfolios = $portfolioRepository->findAll();
-        $allTestimony = $testimonyRepository->findAll();
+        $allPortfolios = $portfolioRepository->findBy([],['id' =>'DESC']);
+        $allTestimony = $testimonyRepository->findBy([],['id' => 'DESC']);
         return $this->render('website/accueil.html.twig', [
             'portfolios' => $allPortfolios,
             'testimonies' => $allTestimony
@@ -85,7 +85,7 @@ class WebsiteController extends AbstractController
      */
     public function allPortfolio(PortfolioRepository $portfolioRepository)
     {
-        $allPortfolio = $portfolioRepository->findAll();
+        $allPortfolio = $portfolioRepository->findBy([],['id' => 'DESC']);
         return $this->render('website/portfolio.html.twig', [
             'portfolios' => $allPortfolio
         ]);
@@ -107,7 +107,7 @@ class WebsiteController extends AbstractController
      */
     public function allBlog(BlogRepository $blogRepository)
     {
-        $allblog = $blogRepository->findAll();
+        $allblog = $blogRepository->findBy([],['id' => 'DESC']);
         return $this->render('website/blog.html.twig', [
             'blogs' => $allblog
         ]);
