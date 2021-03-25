@@ -36,6 +36,7 @@
 
                 <div class="containerMasonry">
                     {% for blog in blogs %}
+                        {% if blog.isVisible %}
                             <div class="blogBlock block-7 ftco-animate ">
                                 <div class="text">
                                     <h2 class="heading"><a href="{{ path('showBlog',{'slug' : blog.slug}) }}">{{ blog.title }}</a></h2>
@@ -44,6 +45,7 @@
                                 </div>
 
                             </div>
+                        {% endif %}
                     {% endfor %}
 
 
