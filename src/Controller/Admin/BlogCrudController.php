@@ -19,7 +19,7 @@ class BlogCrudController extends AbstractCrudController
     {
         return [
             TextField::new('title'),
-            TextEditorField::new('content'),
+            TextEditorField::new('content')->addJsFiles('js/trixFileUpload.js'),
             TextField::new('slug')->onlyOnIndex(),
             BooleanField::new('isVisible')
         ];
